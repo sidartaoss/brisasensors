@@ -1,0 +1,9 @@
+[submodule "microservices/brisasensors-air-monitoring"]
+	path = microservices/brisasensors-air-monitoring
+	url = https://github.com/sidartaoss/brisasensors-air-monitoring.git
+[submodule "microservices/brisasensors-ingestion"]
+	path = microservices/brisasensors-ingestion
+	url = https://github.com/sidartaoss/brisasensors-ingestion.git
+[submodule "microservices/brisasensors-device-management"]
+	path = microservices/brisasensors-device-management
+	url = https://github.com/sidartaoss/brisasensors-device-management.git
