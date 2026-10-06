@@ -1,0 +1,37 @@
+{
+  "users": [
+    {
+      "name": "user",
+      "password_hash": "XFmjKKxpoPzsOSU5jaTjykOUNtMKO87xbzDqDkFbgtU5EQ3B",
+      "hashing_algorithm": "rabbit_password_hashing_sha256",
+      "tags": ["administrator"]
+    }
+  ],
+  "vhosts": [
+    {
+      "name": "brisasensors"
+    }
+  ],
+  "permissions": [
+    {
+      "user": "user",
+      "vhost": "brisasensors",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    }
+  ],
+  "policies": [
+    {
+      "vhost": "brisasensors",
+      "name": "air-monitoring.process-reading.v1.dead-letter",
+      "pattern": "^air-monitoring\\.process-reading\\.v1\\.q$",
+      "apply-to": "queues",
+      "priority": 0,
+      "definition": {
+        "dead-letter-exchange": "",
+        "dead-letter-routing-key": "air-monitoring.process-reading.v1.dlq"
+      }
+    }
+  ]
+}

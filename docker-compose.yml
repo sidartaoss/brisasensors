@@ -1,0 +1,14 @@
+services:
+  brisasensors-rabbitmq:
+    image: rabbitmq:4-management
+    container_name: brisasensors-rabbitmq
+    restart: no
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - ./infra/rabbitmq/30-definitions.conf:/etc/rabbitmq/conf.d/30-definitions.conf:ro
+      - ./infra/rabbitmq/definitions.json:/etc/rabbitmq/definitions.json:ro
+      - brisasensors-rabbitmq:/var/lib/rabbitmq
+volumes:
+  brisasensors-rabbitmq:
